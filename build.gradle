@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://repo1.maven.org/maven2/" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+    }
+}
+apply from: 'publish.gradle'
+
+group 'com.mvs'
+version '0.0.5'
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.31'
+}
+
+test {
+    useJUnitPlatform()
+}
